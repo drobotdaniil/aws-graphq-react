@@ -118,15 +118,6 @@
         "ignoreDeclarationSort": true
       }
     ],
-    "react/require-default-props": "off",
-    "cypress/no-unnecessary-waiting": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      { "devDependencies": ["**/*.stories.tsx", "**/*.test.{ts,tsx}"] }
-    ]
-  },
-  "settings": {
-    "import/internal-regex": "^@components|^@hooks|^@configs|^@utils|^@styles|^@assets|^@store|^@type|^@api|^@Auth|^@Admin|^@Tutor|^@Pupil|^@pages"
-  },
-  "ignorePatterns": ["webpack.config.js", "src/assets/*", "cypress.config.ts"]
+    "react/require-default-props": "off"
+  }
 }

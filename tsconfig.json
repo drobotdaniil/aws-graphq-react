@@ -12,7 +12,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@providers/*": ["src/providers/*"],
+      "@configs/*": ["src/configs/*"],
+      "@type/*": ["src/types/*"],
+    },
+    "sourceMap": true
   },
   "include": ["src"]
 }
