@@ -2,14 +2,16 @@ import { useMemo, useState } from 'react';
 
 import { GraphQLQuery } from '@aws-amplify/api';
 import { deleteTodo } from '@graphql/mutations';
+import { useAuthContext } from '@providers/AuthProvider';
 import { DeleteTodoMutation } from '@type/API';
 import { addHours } from '@utils/date';
 import { API, graphqlOperation } from 'aws-amplify';
 
 import { Props } from '.';
 
-export const useBlog = ({ onDelete, createdAt, updatedAt }: Props) => {
+export const useBlog = ({ onDelete, createdAt, updatedAt, owner }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = useAuthContext();
 
   const handleDeleteBlog = async (id: string) => {
     setIsLoading(true);
@@ -42,5 +44,6 @@ export const useBlog = ({ onDelete, createdAt, updatedAt }: Props) => {
     handleDeleteBlog,
     isNewBlog,
     isEditedBlog,
+    allowModify: user?.getUsername() === owner,
   };
 };

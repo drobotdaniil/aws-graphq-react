@@ -20,29 +20,31 @@ export type Props = Todo & Omit<BlogListProps, 'list'>;
 export const Blog: FC<Props> = (props) => {
   const { name, id, description, onEdit, createdAt } = props;
 
-  const { handleDeleteBlog, isLoading, isNewBlog, isEditedBlog } =
+  const { handleDeleteBlog, isLoading, isNewBlog, isEditedBlog, allowModify } =
     useBlog(props);
 
   return (
     <Card key={id} variant="outlined" sx={{ bgcolor: 'lightblue' }}>
-      <CardActions sx={{ justifyContent: 'flex-end' }}>
-        <IconButton
-          size="small"
-          onClick={() => onEdit(id)}
-          color="success"
-          disabled={isLoading}
-        >
-          <EditOutlined />
-        </IconButton>
+      {allowModify && (
+        <CardActions sx={{ justifyContent: 'flex-end' }}>
+          <IconButton
+            size="small"
+            onClick={() => onEdit(id)}
+            color="success"
+            disabled={isLoading}
+          >
+            <EditOutlined />
+          </IconButton>
 
-        <IconButton
-          onClick={() => handleDeleteBlog(id)}
-          color="error"
-          disabled={isLoading}
-        >
-          <DeleteOutlined />
-        </IconButton>
-      </CardActions>
+          <IconButton
+            onClick={() => handleDeleteBlog(id)}
+            color="error"
+            disabled={isLoading}
+          >
+            <DeleteOutlined />
+          </IconButton>
+        </CardActions>
+      )}
       <CardContent>
         <Box display="flex">
           <Typography gutterBottom component="h3" variant="h4">

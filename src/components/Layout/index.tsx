@@ -2,14 +2,11 @@ import React, { FC, PropsWithChildren } from 'react';
 
 import { Header } from '@components/Header';
 import { Box } from '@mui/material';
-import { useAuthContext } from '@providers/AuthProvider';
 
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
-  const { user } = useAuthContext();
-
   return (
     <>
-      <Header user={user} />
+      <Header />
 
       <Box
         component="main"

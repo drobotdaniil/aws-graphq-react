@@ -1,19 +1,14 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Button } from '@components/Button';
 import { Logo } from '@components/Logo';
 import { NavBar } from '@components/NavBar';
 import { Box } from '@mui/material';
-import { CognitoUser } from 'amazon-cognito-identity-js';
 
 import { useHeader } from './hooks';
 
-type Props = {
-  user: CognitoUser | null;
-};
-
-export const Header: FC<Props> = ({ user }) => {
-  const { handleLogout } = useHeader();
+export const Header = () => {
+  const { handleLogout, user } = useHeader();
 
   return (
     <Box
