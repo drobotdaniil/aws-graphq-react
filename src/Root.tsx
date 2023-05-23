@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 
 import { Loader } from '@components/Loader';
+import { RoutesConfigurator } from '@components/RoutesConfigurator';
 import { paths } from '@configs/path';
-import { About } from '@pages/About';
 import { Auth } from '@pages/Auth';
-import { Home } from '@pages/Home';
 import { useAuthContext } from '@providers/AuthProvider';
 import { Navigate, Route, Routes } from 'react-router-dom';
+
+import { routesConfig } from './configs';
 
 export const Root: React.FC = () => {
   const { user, isLoading } = useAuthContext();
@@ -14,25 +15,18 @@ export const Root: React.FC = () => {
   const rootComponent = useMemo(() => {
     if (isLoading) return <Loader />;
 
-    if (!user) return <Navigate to={paths.auth.base} replace />;
+    if (!user) return <Navigate to="*" replace />;
 
     return (
-      <Routes>
-        <Route path={paths.home} index element={<Home />} />
-        <Route path={paths.about} element={<About />} />
-
-        <Route path="*" element={<Navigate to={paths.home} replace />} />
-      </Routes>
+      <RoutesConfigurator config={routesConfig} defaultPath={paths.blogs} />
     );
   }, [isLoading, user]);
 
   return (
     <Routes>
-      {!user && !isLoading && (
-        <Route path={paths.auth.base} element={<Auth />} />
-      )}
+      {!user && !isLoading && <Route path="*" element={<Auth />} />}
 
-      <Route path="/*" element={rootComponent} />
+      <Route path="*" element={rootComponent} />
     </Routes>
   );
 };

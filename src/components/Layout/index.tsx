@@ -15,10 +15,11 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
         component="main"
         sx={{
           display: 'flex',
+          flexDirection: 'column',
           padding: '10px 24px',
-          width: '100%',
-          height: '100%',
           overflow: 'hidden',
+          maxWidth: 1440,
+          margin: '0 auto',
         }}
       >
         {children}

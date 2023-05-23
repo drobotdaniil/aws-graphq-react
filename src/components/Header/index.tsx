@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 
+import { Button } from '@components/Button';
 import { Logo } from '@components/Logo';
 import { NavBar } from '@components/NavBar';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { CognitoUser } from 'amazon-cognito-identity-js';
 
 import { useHeader } from './hooks';

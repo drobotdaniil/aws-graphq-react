@@ -1,11 +1,14 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Layout } from '@components/Layout';
+import { Typography } from '@mui/material';
 
-export const About: FC = () => {
+export const About = () => {
   return (
     <Layout>
-      <h1>About page</h1>
+      <Typography variant="h2" component="h1" gutterBottom>
+        About page
+      </Typography>
     </Layout>
   );
 };

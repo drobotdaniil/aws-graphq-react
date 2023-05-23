@@ -1,0 +1,8 @@
+1. Private/public blogs
+
+
+
+private and public blogs will be opened if user is registered. if no -> only public
+
+
+if regsitered can create blogs.

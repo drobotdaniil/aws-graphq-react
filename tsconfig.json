@@ -19,6 +19,9 @@
       "@providers/*": ["src/providers/*"],
       "@configs/*": ["src/configs/*"],
       "@type/*": ["src/types/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@graphql/*": ["src/graphql/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "sourceMap": true
   },

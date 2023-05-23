@@ -119,5 +119,10 @@
       }
     ],
     "react/require-default-props": "off"
-  }
+  },
+  "ignorePatterns": [
+    "webpack.config.js",
+    "common.webpack.config.js",
+    "dev.webpack.config.js"
+  ]
 }

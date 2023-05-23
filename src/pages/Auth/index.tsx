@@ -1,42 +1,37 @@
 import React from 'react';
 
+import { RoutesConfigurator } from '@components/RoutesConfigurator';
 import { paths } from '@configs/path';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
+import { Box } from '@mui/material';
 
-import { SignIn } from './SignIn';
-import { SignUp } from './SignUp';
-
-const Main = styled('main')`
-  margin: 0;
-  padding: 0;
-  display: grid;
-  place-content: center;
-  min-height: 100vh;
-
-  form {
-    height: 400px;
-    padding: 50px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid silver;
-    display: flex;
-    flex-direction: column;
-  }
-`;
+import { routesConfig } from './configs';
 
 export const Auth = () => {
   return (
-    <Main>
-      <Routes>
-        <Route path={paths.auth.signIn} element={<SignIn />} />
-        <Route path={paths.auth.signUp} element={<SignUp />} />
+    <Box
+      component="main"
+      sx={{
+        m: 0,
+        p: 0,
+        display: 'grid',
+        placeContent: 'center',
+        minHeight: '100vh',
 
-        <Route
-          path="/*"
-          element={<Navigate to={paths.auth.signIn} replace />}
-        />
-      </Routes>
-    </Main>
+        form: {
+          height: '400px',
+          padding: '50px',
+          width: '300px',
+          borderRadius: '5px',
+          border: '1px solid silver',
+          display: 'flex',
+          flexDirection: 'column',
+        },
+      }}
+    >
+      <RoutesConfigurator
+        config={routesConfig}
+        defaultPath={paths.auth.signIn}
+      />
+    </Box>
   );
 };

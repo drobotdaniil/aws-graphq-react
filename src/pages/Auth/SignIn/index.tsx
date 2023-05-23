@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { Button } from '@components/Button';
 import { Loader } from '@components/Loader';
 import { TextField } from '@components/TextField';
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 import { useSignIn } from './hooks';
 

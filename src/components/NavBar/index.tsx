@@ -17,7 +17,7 @@ export const NavBar: FC = () => {
     <nav>
       <Navigate>
         <li>
-          <Link to={paths.home}>Home</Link>
+          <Link to={paths.blogs}>Blogs</Link>
         </li>
         <li>
           <Link to={paths.about}>About</Link>

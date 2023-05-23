@@ -1,16 +1,8 @@
 import React, { FC } from 'react';
 
-import { Box, TextField as TextFieldMUI } from '@mui/material';
+import { Box, TextField as TextFieldMUI, TextFieldProps } from '@mui/material';
 
-type Props = {
-  name: string;
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
-  label?: string;
-};
-
-export const TextField: FC<Props> = ({
+export const TextField: FC<TextFieldProps> = ({
   type = 'text',
   name,
   label,
