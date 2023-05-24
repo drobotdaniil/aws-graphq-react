@@ -34,6 +34,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
             flexDirection: 'column',
             padding: '10px 24px',
             width: '100%',
+            overflow: 'auto',
           }}
         >
           {children}
