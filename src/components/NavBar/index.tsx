@@ -1,28 +1,40 @@
 import React, { FC } from 'react';
 
-import { paths } from '@configs/path';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Box, List, ListItem, Typography } from '@mui/material';
+import { Link, useMatch } from 'react-router-dom';
 
-const Navigate = styled('ul')`
-  display: flex;
-
-  li:first-child {
-    margin: 0 10px;
-  }
-`;
+import { routesConfig } from '../../configs';
 
 export const NavBar: FC = () => {
+  const match = useMatch({ path: '/:page', end: false });
+
+  const matchedPage = match?.params?.page || '';
+  const activeTab = `/${matchedPage}`;
+
   return (
-    <nav>
-      <Navigate>
-        <li>
-          <Link to={paths.blogs}>Blogs</Link>
-        </li>
-        <li>
-          <Link to={paths.about}>About</Link>
-        </li>
-      </Navigate>
-    </nav>
+    <Box
+      component="aside"
+      sx={{ width: '100%', maxWidth: 280, bgcolor: 'lightblue' }}
+    >
+      <nav>
+        <List>
+          {Object.keys(routesConfig).map((path) => {
+            const { title } = routesConfig[path];
+            return (
+              <ListItem
+                key={path}
+                sx={{
+                  bgcolor: activeTab === path ? 'silver' : 'none',
+                }}
+              >
+                <Link to={path}>
+                  <Typography>{title}</Typography>
+                </Link>
+              </ListItem>
+            );
+          })}
+        </List>
+      </nav>
+    </Box>
   );
 };

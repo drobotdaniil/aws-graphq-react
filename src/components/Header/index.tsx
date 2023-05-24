@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Button } from '@components/Button';
 import { Logo } from '@components/Logo';
-import { NavBar } from '@components/NavBar';
-import { Box } from '@mui/material';
+import { Logout } from '@mui/icons-material';
+import { Box, IconButton, Typography } from '@mui/material';
 
 import { useHeader } from './hooks';
 
@@ -21,16 +20,15 @@ export const Header = () => {
         border: '1px solid silver',
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Logo />
-        <NavBar />
-      </Box>
+      <Logo />
 
       <Box>
-        <Box>User: {user?.getUsername()}</Box>
-        <Button sx={{ ml: 'auto', display: 'flex' }} onClick={handleLogout}>
-          Logout
-        </Button>
+        <Typography sx={{ mr: 2, fontWeight: 'bold' }} variant="overline">
+          {user?.attributes.name}
+        </Typography>
+        <IconButton onClick={handleLogout}>
+          <Logout />
+        </IconButton>
       </Box>
     </Box>
   );

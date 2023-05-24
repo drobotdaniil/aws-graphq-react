@@ -5,13 +5,11 @@ import { paths } from '@configs/path';
 import { SignIn } from './SignIn';
 import { SignUp } from './SignUp';
 
-export const routesConfig = [
-  {
-    path: paths.auth.signIn,
+export const routesConfig = {
+  [paths.auth.signIn]: {
     Component: <SignIn />,
   },
-  {
-    path: paths.auth.signUp,
+  [paths.auth.signUp]: {
     Component: <SignUp />,
   },
-];
+};

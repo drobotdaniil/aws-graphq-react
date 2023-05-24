@@ -3,3 +3,10 @@ export enum SignUpStep {
   VerifyStep,
   VerificationSuccessful,
 }
+
+export type UserAttributes = {
+  email: string;
+  email_verified: boolean;
+  name: string;
+  sub: string;
+};

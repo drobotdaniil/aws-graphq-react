@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
+import { UserAttributes } from '@type/auth';
 import { CognitoUser } from 'amazon-cognito-identity-js';
 import { Auth, Hub } from 'aws-amplify';
 
+type User = CognitoUser & {
+  attributes: UserAttributes;
+};
+
 export const useAuth = () => {
-  const [user, setUser] = useState<CognitoUser | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchAuthUser = async () => {

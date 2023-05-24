@@ -4,13 +4,13 @@ import { paths } from '@configs/path';
 import { About } from '@pages/About';
 import { Blogs } from '@pages/Blogs';
 
-export const routesConfig = [
-  {
-    path: paths.blogs,
+export const routesConfig = {
+  [paths.blogs]: {
+    title: 'Blogs',
     Component: <Blogs />,
   },
-  {
-    path: paths.about,
+  [paths.about]: {
+    title: 'About',
     Component: <About />,
   },
-];
+};

@@ -22,27 +22,33 @@ export const Blogs = () => {
 
   return (
     <Layout>
-      <Typography variant="h2" component="h1" gutterBottom>
-        Blog page
-      </Typography>
-
-      <Button onClick={handleCreateClick} sx={{ mb: 2 }}>
-        Create todo
-      </Button>
-
       {isLoading ? (
         <Loader />
       ) : (
-        <BlogList list={blogs} onDelete={fetchBlogs} onEdit={handleEditClick} />
-      )}
+        <>
+          <Typography variant="h2" component="h1" gutterBottom>
+            Blog page
+          </Typography>
 
-      {on && (
-        <BlogUpsert
-          open={on}
-          onClose={close}
-          onConfirm={fetchBlogs}
-          modalContext={modalContext}
-        />
+          <Button onClick={handleCreateClick} sx={{ mb: 2 }}>
+            Create todo
+          </Button>
+
+          <BlogList
+            list={blogs}
+            onDelete={fetchBlogs}
+            onEdit={handleEditClick}
+          />
+
+          {on && (
+            <BlogUpsert
+              open={on}
+              onClose={close}
+              onConfirm={fetchBlogs}
+              modalContext={modalContext}
+            />
+          )}
+        </>
       )}
     </Layout>
   );

@@ -1,4 +1,7 @@
-export type RouteConfig = {
-  path: string;
-  Component: JSX.Element;
-};
+export type RouteConfig = Record<
+  string,
+  {
+    Component: JSX.Element;
+    title?: string;
+  }
+>;
