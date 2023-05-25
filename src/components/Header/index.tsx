@@ -6,7 +6,7 @@ import { Box, IconButton, Typography } from '@mui/material';
 
 import { useHeader } from './hooks';
 
-export const Header = () => {
+export const Header = React.memo(() => {
   const { handleLogout, user } = useHeader();
 
   return (
@@ -32,4 +32,4 @@ export const Header = () => {
       </Box>
     </Box>
   );
-};
+});

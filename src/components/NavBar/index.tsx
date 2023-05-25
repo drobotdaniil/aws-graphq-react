@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Box, List, ListItem, Typography } from '@mui/material';
 import { Link, useMatch } from 'react-router-dom';
 
 import { routesConfig } from '../../configs';
 
-export const NavBar: FC = () => {
+export const NavBar = React.memo(() => {
   const match = useMatch({ path: '/:page', end: false });
 
   const matchedPage = match?.params?.page || '';
@@ -37,4 +37,4 @@ export const NavBar: FC = () => {
       </nav>
     </Box>
   );
-};
+});

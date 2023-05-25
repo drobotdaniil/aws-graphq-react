@@ -37,15 +37,18 @@ export const useBlogs = () => {
     }
   }, []);
 
-  const handleEditClick = (id: string) => {
-    setModalContext({ mode: ModalMode.Edit, id });
-    open();
-  };
+  const handleEditClick = useCallback(
+    (id: string) => {
+      setModalContext({ mode: ModalMode.Edit, id });
+      open();
+    },
+    [open],
+  );
 
-  const handleCreateClick = () => {
+  const handleCreateClick = useCallback(() => {
     setModalContext({ mode: ModalMode.Create, id: '' });
     open();
-  };
+  }, [open]);
 
   useEffect(() => {
     fetchBlogs();
